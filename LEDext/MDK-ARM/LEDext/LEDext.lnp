@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"ledext\startup_stm32f103xb.o"
+"ledext\main.o"
+"ledext\gpio.o"
+"ledext\stm32f1xx_it.o"
+"ledext\stm32f1xx_hal_msp.o"
+"ledext\stm32f1xx_hal_gpio_ex.o"
+"ledext\stm32f1xx_hal.o"
+"ledext\stm32f1xx_hal_rcc.o"
+"ledext\stm32f1xx_hal_rcc_ex.o"
+"ledext\stm32f1xx_hal_gpio.o"
+"ledext\stm32f1xx_hal_dma.o"
+"ledext\stm32f1xx_hal_cortex.o"
+"ledext\stm32f1xx_hal_pwr.o"
+"ledext\stm32f1xx_hal_flash.o"
+"ledext\stm32f1xx_hal_flash_ex.o"
+"ledext\stm32f1xx_hal_exti.o"
+"ledext\system_stm32f1xx.o"
+--strict --scatter "LEDext\LEDext.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "LEDext.map" -o LEDext\LEDext.axf
