@@ -57,13 +57,14 @@ static void MX_NVIC_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t hello[20]="hello windows！\r\n";
+
 /* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
   * @retval int
   */
+uint8_t hello[20]="hello windows！\r\n";
 int main(void)
 {
 
