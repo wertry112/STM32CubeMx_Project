@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"week6_pwm\startup_stm32f103xb.o"
+"week6_pwm\main.o"
+"week6_pwm\gpio.o"
+"week6_pwm\tim.o"
+"week6_pwm\stm32f1xx_it.o"
+"week6_pwm\stm32f1xx_hal_msp.o"
+"week6_pwm\stm32f1xx_hal_gpio_ex.o"
+"week6_pwm\stm32f1xx_hal_tim.o"
+"week6_pwm\stm32f1xx_hal_tim_ex.o"
+"week6_pwm\stm32f1xx_hal.o"
+"week6_pwm\stm32f1xx_hal_rcc.o"
+"week6_pwm\stm32f1xx_hal_rcc_ex.o"
+"week6_pwm\stm32f1xx_hal_gpio.o"
+"week6_pwm\stm32f1xx_hal_dma.o"
+"week6_pwm\stm32f1xx_hal_cortex.o"
+"week6_pwm\stm32f1xx_hal_pwr.o"
+"week6_pwm\stm32f1xx_hal_flash.o"
+"week6_pwm\stm32f1xx_hal_flash_ex.o"
+"week6_pwm\stm32f1xx_hal_exti.o"
+"week6_pwm\system_stm32f1xx.o"
+--strict --scatter "Week6_PWM\Week6_PWM.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Week6_PWM.map" -o Week6_PWM\Week6_PWM.axf
