@@ -57,14 +57,13 @@ static void MX_NVIC_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+uint8_t hello[20]="hello windows！\r\n";
 /* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
   * @retval int
   */
-uint8_t hello[20]="hello windows！\r\n";
 int main(void)
 {
 
@@ -96,11 +95,11 @@ int main(void)
 
   /* Initialize interrupts */
   MX_NVIC_Init();
-  /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim3);
-  HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(TIM2_IRQn);
+
+  /* USER CODE BEGIN 2 */
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -159,9 +158,6 @@ void SystemClock_Config(void)
   */
 static void MX_NVIC_Init(void)
 {
-  /* TIM2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(TIM2_IRQn);
   /* TIM3_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(TIM3_IRQn);
