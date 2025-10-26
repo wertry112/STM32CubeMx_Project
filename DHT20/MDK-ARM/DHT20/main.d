@@ -31,6 +31,5 @@ dht20\main.o: ../Core/Inc/dma.h
 dht20\main.o: ../Core/Inc/i2c.h
 dht20\main.o: ../Core/Inc/usart.h
 dht20\main.o: ../Core/Inc/gpio.h
-dht20\main.o: .\AHT20\AHT20-21_DEMO_V1_3.h
 dht20\main.o: D:\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
-dht20\main.o: D:\MDK5\ARM\ARMCC\Bin\..\include\string.h
+dht20\main.o: ./AHT20/AHT20-21_DEMO_V1_3.h

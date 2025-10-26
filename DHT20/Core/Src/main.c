@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2022 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -25,50 +25,156 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include<stdio.h>
 #include "AHT20-21_DEMO_V1_3.h" 
-#include <stdio.h>
-#include <string.h>
+/* USER CODE END Includes */
 
-int fputc(int ch,FILE *f)//重新printf
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+int fputc(int ch, FILE *f)
+ 
 {
-    HAL_UART_Transmit(&huart1,(uint8_t *)&ch,1,0xFFFF);    
-        while(__HAL_UART_GET_FLAG(&huart1,UART_FLAG_TC)!=SET){
-        }        
-    return ch;
-}
-void SystemClock_Config(void);
-volatile int  c1,t1;
-uint32_t CT_data[2]={0,0};
-int main(void)
-{
-  HAL_Init();
-  SystemClock_Config();
-  MX_USART1_UART_Init();
-  MX_DMA_Init();
-  MX_I2C1_Init();    
-    AHT20_Init();//放在其它之后
-  if((AHT20_Read_Status()&0x18)!=0x18)
-    {
-        AHT20_Start_Init(); //重新初始化寄存器
-        Delay_1ms(10);
-    }
-
-
-  while (1)
-  {
-   
-        AHT20_Read_CTdata(CT_data);       //不经过CRC校验，直接读取AHT20的温度和湿度数据    推荐每隔大于1S读一次
-    //AHT20_Read_CTdata_crc(CT_data);  //crc校验后，读取AHT20的温度和湿度数据 
-      c1 = CT_data[0]*100*10/1024/1024;  //计算得到湿度值c1（放大了10倍）
-      t1 = CT_data[1]*200*10/1024/1024-500;//计算得到温度值t1（放大了10倍）    
-        printf("Humidity: %d %%\r\n",c1/10);
-      printf("Temperature: %d C\r\n",t1/10);
-      printf("\r\n");
-        HAL_Delay(3000);
-
-  }
+ 
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xffff);
+ 
+  return ch;
  
 }
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+	uint32_t CT_data[2]={0,0};
+	volatile int  c1,t1;
+	Delay_1ms(500);
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  
+  MX_USART1_UART_Init();
+  MX_DMA_Init();
+  MX_I2C1_Init();	
+  MX_USART1_UART_Init();
+	
+  /* USER CODE BEGIN 2 */
+  AHT20_Init();
+	Delay_1ms(500);
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    /* USER CODE END WHILE */
+		//AHT20_Read_CTdata(CT_data);       //???CRC??,????AHT20????????    ??????1S???
+		AHT20_Read_CTdata_crc(CT_data);  //crc???,??AHT20???????? 
+	
+
+		c1 = CT_data[0]*1000/1024/1024;  //???????c1(???10?)
+		t1 = CT_data[1]*2000/1024/1024-500;//???????t1(???10?)
+		printf("????");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		printf("\r\n");
+		HAL_Delay(1000);
+		printf("??:%d%d.%d",t1/100,(t1/10)%10,t1%10);
+		printf("??:%d%d.%d",c1/100,(c1/10)%10,c1%10);
+		printf("\r\n");
+		printf("??");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		HAL_Delay(100);
+		printf(".");
+		printf("\r\n");
+		HAL_Delay(1000);
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -126,7 +232,8 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-#ifdef USE_FULL_ASSERT
+
+#ifdef  USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

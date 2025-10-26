@@ -488,7 +488,7 @@ void JH_Reset_REG(uint8_t addr)
 	I2C_Start();
 	AHT20_WR_Byte(0x70);///
 	Receive_ACK();
-	AHT20_WR_Byte(0xB0|addr);
+	AHT20_WR_Byte(0xB0|addr);//?????
 	Receive_ACK();
 	AHT20_WR_Byte(Byte_second);
 	Receive_ACK();
@@ -506,4 +506,3 @@ void AHT20_Start_Init(void)
 	JH_Reset_REG(0x1c);
 	JH_Reset_REG(0x1e);
 }
-
