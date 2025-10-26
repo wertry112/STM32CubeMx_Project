@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+"dht20\startup_stm32f103xb.o"
+"dht20\main.o"
+"dht20\gpio.o"
+"dht20\dma.o"
+"dht20\i2c.o"
+"dht20\usart.o"
+"dht20\stm32f1xx_it.o"
+"dht20\stm32f1xx_hal_msp.o"
+"dht20\stm32f1xx_hal_gpio_ex.o"
+"dht20\stm32f1xx_hal_i2c.o"
+"dht20\stm32f1xx_hal.o"
+"dht20\stm32f1xx_hal_rcc.o"
+"dht20\stm32f1xx_hal_rcc_ex.o"
+"dht20\stm32f1xx_hal_gpio.o"
+"dht20\stm32f1xx_hal_dma.o"
+"dht20\stm32f1xx_hal_cortex.o"
+"dht20\stm32f1xx_hal_pwr.o"
+"dht20\stm32f1xx_hal_flash.o"
+"dht20\stm32f1xx_hal_flash_ex.o"
+"dht20\stm32f1xx_hal_exti.o"
+"dht20\stm32f1xx_hal_uart.o"
+"dht20\system_stm32f1xx.o"
+"dht20\aht20-21_demo_v1_3.o"
+--library_type=microlib --strict --scatter "DHT20\DHT20.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "DHT20.map" -o DHT20\DHT20.axf
