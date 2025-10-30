@@ -1,0 +1,16 @@
+ucosiii\os_app_hooks.o: uCOS-CONFIG\os_app_hooks.c
+ucosiii\os_app_hooks.o: .\UCOS-III\Source\os.h
+ucosiii\os_app_hooks.o: .\uCOS-CONFIG\os_cfg.h
+ucosiii\os_app_hooks.o: .\uC-CPU\cpu_core.h
+ucosiii\os_app_hooks.o: .\uC-CPU\ARM-Cortex-M4\RealView\cpu.h
+ucosiii\os_app_hooks.o: .\uC-CPU\cpu_def.h
+ucosiii\os_app_hooks.o: .\uCOS-CONFIG\cpu_cfg.h
+ucosiii\os_app_hooks.o: .\uC-LIB\lib_def.h
+ucosiii\os_app_hooks.o: .\uC-LIB\lib_mem.h
+ucosiii\os_app_hooks.o: .\uC-CPU\cpu_core.h
+ucosiii\os_app_hooks.o: .\uCOS-CONFIG\lib_cfg.h
+ucosiii\os_app_hooks.o: .\uC-LIB\lib_str.h
+ucosiii\os_app_hooks.o: .\uC-LIB\lib_ascii.h
+ucosiii\os_app_hooks.o: .\UCOS-III\Source\os_type.h
+ucosiii\os_app_hooks.o: .\UCOS-III\Ports\ARM-Cortex-M4\Generic\RealView\os_cpu.h
+ucosiii\os_app_hooks.o: .\uCOS-CONFIG\os_app_hooks.h
